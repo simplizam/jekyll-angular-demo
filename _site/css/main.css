@@ -6304,6 +6304,7 @@ body{
 
 .angular-google-map-container { 
 	height: 600px;
+	z-index: 100;
 	box-shadow: 0 2px 6px 0 rgba(0, 0, 0, 0.2), 0 25px 50px 0 rgba(0, 0, 0, 0.4);
 }
 
