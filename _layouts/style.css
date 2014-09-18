@@ -1,0 +1,113 @@
+{% include css/bootstrap.css %}
+
+body{
+	background: #fff url(../img/light_mosaic.png) repeat 0 0;
+	-webkit-font-smoothing: antialiased;
+
+}
+
+.angular-google-map-container { 
+	height: 600px;
+	box-shadow: 0 2px 6px 0 rgba(0, 0, 0, 0.2), 0 25px 50px 0 rgba(0, 0, 0, 0.4);
+}
+
+#fishlist {
+}
+
+.navbar-form {
+	border: 0px;
+}
+
+.navbar-default .navbar-brand {
+	color: #ddd;
+	font-size: 1.4em;
+}
+
+#item {
+	width: 120px;
+	margin: 4px;
+	white-space: normal;
+	font-size: 0.8em;
+	box-shadow: 0 2px 6px 0 rgba(0, 0, 0, 0.2), 0 25px 50px 0 rgba(0, 0, 0, 0.2);
+}
+
+footer {
+	margin-top: 300px;
+	text-align: center;
+}
+
+#footer {
+	color: #777;
+	padding: 0 15px;
+	position: absolute;
+	right: 0;
+	bottom: -31px;
+	left: 0;
+	height: 20px;
+	z-index: 1;
+	text-align: center;
+}
+
+#footer:before {
+	content: '';
+	margin-left: 15px;
+	margin-right: 15px;
+	position: absolute;
+	right: 0;
+	bottom: 31px;
+	left: 0;
+	height: 257px;
+	z-index: -1;
+	box-shadow: 0 1px 1px rgba(0, 0, 0, 0.3),
+				0 6px 0 -3px rgba(255, 255, 255, 0.8),
+				0 7px 1px -3px rgba(0, 0, 0, 0.3),
+				0 250px 0 -6px rgba(255, 255, 255, 0.8),
+				0 251px 2px -6px rgba(0, 0, 0, 0.2);
+}
+
+
+#wiki {
+	height: 200px;
+	overflow: scroll;
+	overflow-x: hidden;
+	font-size: 1.0em;
+	padding: 25px;
+}
+
+#wiki::-webkit-scrollbar {
+	margin-right: 50px;
+    width: 1em;
+    height: 4em;
+}
+ 
+#wiki::-webkit-scrollbar-track {
+    -webkit-box-shadow: 0 0 0px rgba(0,0,0,0.3);
+}
+ 
+#wiki::-webkit-scrollbar-thumb {
+  background-color: darkgrey;
+  outline: 1px solid slategrey;
+}
+
+@media (min-width: 992px) {
+  .container {
+    width: 100%;
+  }
+}
+
+@media (min-width: 1200px) {
+  .container {
+    width: 100%;
+  }
+}
+
+
+@media (min-width: 1024px) {
+	.navbar-default .navbar-brand {
+	font-size: 2em;
+	}
+}
+
+footer {
+	width: 100%;
+}

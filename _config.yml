@@ -1,0 +1,11 @@
+# Site settings
+url: https://y7kim.github.io # the base hostname & protocol for your site
+baseurl: /jekyll-angular-demo/ # the subpath of your site, e.g. /blog/
+
+title: Reported Observations of Aquatic Invasive Species
+email: kim.rick@domain.com
+description: "A simple angular app that uses Google Maps and Open Data"
+github_username:  y7kim
+
+# Build settings
+markdown: kramdown

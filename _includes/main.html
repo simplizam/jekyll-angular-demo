@@ -1,0 +1,36 @@
+<div class="container" ng-controller="MapCtrl">
+		<div class="row">
+		
+		<div class="col-md-5 col-md-push-7">
+			<div id ="fishlist" >
+				<div id ="item" class="btn btn-default" ng-repeat="species in data.layers | filter:searchFish"  ng-class="{'button': !map.showMap[species.id], 'button active': map.showMap[species.id]}" ng-click="map.showMap[species.id]=!map.showMap[species.id]; getWiki(species.id);">// species.name //</div>
+			</div>
+
+		</div>
+
+		<div class="col-md-7 col-md-pull-5">
+			<google-map center="map.center" zoom="map.zoom" bounds="map.bounds">
+				<div ng-repeat="species in data.layers">
+					<rectangle bounds="getBounds(species.id); boundsArray[species.id];" fill="'#FFFFFF .5'" visible="map.showMap[species.id]" ng-init="map.showMap[species.id]=false"></rectangle>
+				</div>
+			</google-map>
+
+			<footer id="footer" ng-show="wikiHTML">
+				<div id ="wiki" ng-click="wikiHTML = null"> 
+					<div class="row">
+						<div class="col-md-8">		
+							<div ng-bind-html="wikiHTML"></div>
+						</div>
+						<div class="col-md-4">
+							<div class="btn btn-warning btn-lg" ng-if="whenInvaded"> // whenInvaded //</div>	
+						</div>
+					</div>
+				
+				</div>
+			</footer>
+
+		</div>
+		
+		</div>	
+			
+	</div>

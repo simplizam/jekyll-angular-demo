@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html  ng-app="myApp">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+
+    <title>About</title>
+    <meta name="description" content="A simple angular app that uses Google Maps and Open Data">
+    <link rel="stylesheet" href="/css/main.css">
+    <link href='//fonts.googleapis.com/css?family=Raleway:400,700&effect=emboss' rel='stylesheet' type='text/css'>
+    <link rel="canonical" href="/about/">
+</head>
+
+
+  <body>
+   
+    
+
+ <!-- Navigation -->
+   <div class="navbar navbar-default">
+      <div class="navbar-header">
+        <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-responsive-collapse">
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+        </button>
+        <a class="navbar-brand font-effect-emboss" href="#">Reported Observations of Aquatic Invasive Species</a>
+      </div>
+      <div class="navbar-collapse collapse navbar-responsive-collapse">
+       
+        <form class="navbar-form navbar-right">
+          <input type="text" class="form-control col-lg-8" placeholder="Search" ng-model="searchFish">
+        </form>
+        
+      </div>
+    </div>
+    <div class="container" ng-controller="MapCtrl">
+		<div class="row">
+		
+		<div class="col-md-5 col-md-push-7">
+			<div id ="fishlist" >
+				<div id ="item" class="btn btn-default" ng-repeat="species in data.layers | filter:searchFish"  ng-class="{'button': !map.showMap[species.id], 'button active': map.showMap[species.id]}" ng-click="map.showMap[species.id]=!map.showMap[species.id]; getWiki(species.id);">// species.name //</div>
+			</div>
+
+		</div>
+
+		<div class="col-md-7 col-md-pull-5">
+			<google-map center="map.center" zoom="map.zoom" bounds="map.bounds">
+				<div ng-repeat="species in data.layers">
+					<rectangle bounds="getBounds(species.id); boundsArray[species.id];" fill="'#FFFFFF .5'" visible="map.showMap[species.id]" ng-init="map.showMap[species.id]=false"></rectangle>
+				</div>
+			</google-map>
+
+			<footer id="footer" ng-show="wikiHTML">
+				<div id ="wiki" ng-click="wikiHTML = null"> 
+					<div class="row">
+						<div class="col-md-8">		
+							<div ng-bind-html="wikiHTML"></div>
+						</div>
+						<div class="col-md-4">
+							<div class="btn btn-warning btn-lg" ng-if="whenInvaded"> // whenInvaded //</div>	
+						</div>
+					</div>
+				
+				</div>
+			</footer>
+
+		</div>
+		
+		</div>	
+			
+	</div>
+      <footer>
+        <div class="container">
+            <div class="row">
+                <div class="col-md-6">
+                    <span class="copyright">Copyright &copy; Reported Observations of Aquatic Invasive Species 2014</span>
+                </div>
+                <div class="col-md-6">
+                    <ul class="list-inline social-buttons">
+                        
+          
+          <li>
+            <a href="https://github.com/y7kim">
+              
+
+              <span class="username">y7kim</span>
+            </a>
+          </li>
+          
+
+            </div>
+        </div>
+    </footer>
+     	<script src="//ajax.googleapis.com/ajax/libs/angularjs/1.2.23/angular.min.js"></script>
+	<script src='//maps.googleapis.com/maps/api/js?sensor=false'></script>
+	<script src='//cdnjs.cloudflare.com/ajax/libs/lodash.js/2.4.1/lodash.underscore.min.js'></script>
+	
+    <script src="/js/app.js"></script>
+
+     <!-- jQuery Version 1.11.0 -->
+    <script src="/js/jquery-1.11.0.js"></script>
+
+    <!-- Bootstrap Core JavaScript -->
+    <script src="/js/bootstrap.min.js"></script>
+
+    <!-- Angular Google Maps -->
+    <script src="/js/angular-google-maps.min.js"></script>
+
+
+  </body>
+
+</html>
